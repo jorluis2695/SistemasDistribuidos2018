@@ -14,4 +14,4 @@ dado que el top 10 de gifs debe cambiar cada día).
 3) Si el resultado no estaba en la caché, ejecutar el query SQL en la BD, almacenarlo en la
 caché (para que de ahora en adelante ya esté cacheado), y retornarlo al usuario.
 
-Página web utilizando loos servicios de AWS [http://34.219.222.210/gifs_project/clientphp.php](http://34.219.222.210/gifs_project/clientphp.php)
+Página web utilizando los servicios de AWS [http://34.219.222.210/gifs_project/clientphp.php](http://34.219.222.210/gifs_project/clientphp.php)
