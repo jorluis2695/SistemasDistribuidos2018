@@ -1,6 +1,11 @@
 # SistemasDistribuidos2018
 Descripción
 Sistema web, con una arquitectura de microservicios y una caché para reducir la latencia de acceso a la base de datos. El sistema será uno que permite ver los diez gifs animados más populares de un sistema (top 10, en popularidad). Los gifs, con sus contadores de acceso, deberán estar almacenadas en una base de datos. El sistema web deberá contactar a un microservicio que le retorna los top 10 gifs, para su render en una página HTML, al usuario final. Para evitar saturar la base de datos, deberán usar una caché en la cual se almacenará el resultado del query, por ejemplo:
+
+
+En este repositorio se puede encontrar lo necesario para replicar el trabajo:
+  - En la carpeta Scripts, se encunetra un Script de Python donde se crea el script sql necesario para llenar la base de datos, basándose en los scripts que se encuentran en el archivo gifs.txt
+
 SELECT DISTINCT *
 FROM gifs_animados
 ORDER BY
