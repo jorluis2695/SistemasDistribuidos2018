@@ -1,12 +1,6 @@
 # SistemasDistribuidos2018
 Descripción
-En el proyecto, deberán implementar un sistema web, con una arquitectura de microservicios y
-una caché para reducir la latencia de acceso a la base de datos. El sistema será uno que permite
-ver los diez gifs animados más populares de un sistema (top 10, en popularidad). Los gifs, con sus
-contadores de acceso, deberán estar almacenadas en una base de datos. El sistema web deberá
-contactar a un microservicio que le retorna los top 10 gifs, para su render en una página HTML, al
-usuario final. Para evitar saturar la base de datos, deberán usar una caché en la cual se
-almacenará el resultado del query, por ejemplo:
+Sistema web, con una arquitectura de microservicios y una caché para reducir la latencia de acceso a la base de datos. El sistema será uno que permite ver los diez gifs animados más populares de un sistema (top 10, en popularidad). Los gifs, con sus contadores de acceso, deberán estar almacenadas en una base de datos. El sistema web deberá contactar a un microservicio que le retorna los top 10 gifs, para su render en una página HTML, al usuario final. Para evitar saturar la base de datos, deberán usar una caché en la cual se almacenará el resultado del query, por ejemplo:
 SELECT DISTINCT *
 FROM gifs_animados
 ORDER BY
