@@ -12,6 +12,7 @@ from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
 def main():
+	ti = time.time()
 
     transport = TSocket.TSocket('localhost', 9999)
 
@@ -24,12 +25,10 @@ def main():
     transport.open()
 
 
-    topGifs = client.TopGifs("cat")
-    count = 0	
-    for i in topGifs:
-	count+=1
-	print(count)
-
+    topGifs = client.TopGifs("todos")
+    count = 0   
+    tf = time.time()
+    print(tf-ti)
     transport.close()
 
 if __name__ == '__main__':
@@ -37,3 +36,5 @@ if __name__ == '__main__':
         main()
     except Thrift.TException as tx:
         print('%s' % tx.message)
+
+
