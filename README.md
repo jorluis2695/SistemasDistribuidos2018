@@ -5,18 +5,7 @@ Sistema web, con una arquitectura de microservicios y una caché para reducir la
 
 En este repositorio se puede encontrar lo necesario para replicar el trabajo:
   - En la carpeta Scripts, se encunetra un Script de Python donde se crea el script sql necesario para llenar la base de datos, basándose en los scripts que se encuentran en el archivo gifs.txt
-
-SELECT DISTINCT *
-FROM gifs_animados
-ORDER BY
-num_accesos
-LIMIT 10
-Es decir, cuando se invoca el microservicio, ustedes deben:
-1) Verificar si el resultado del query ya está cargado en la caché (ej.: get <key> en Redis o
-Memcached, donde <key> puede ser un string que represente la fecha del día de hoy,
-dado que el top 10 de gifs debe cambiar cada día).
-2) Si el resultado estaba en la caché, retornarlo al usuario.
-3) Si el resultado no estaba en la caché, ejecutar el query SQL en la BD, almacenarlo en la
-caché (para que de ahora en adelante ya esté cacheado), y retornarlo al usuario.
+  - En el archivo servidor.py es donde se encuentra el microservicio, el cuál se encarga de conectarse a Redis, para ver si se encuentra cacheado el requerimiento, caso contrario, lo consulta de la base de datos y lo cachea. Luego de esto devuelve la respuesta al cliente que invoque el método topGifs(tag)  donde el tag quiere decir la etiqueta que tiene en la base de datos, en este caso "cat", "dog", "sports".  Para cachear se usa esta misma etiqueta y se le pone un tiempo de expiración de 60 segundos, además para cachear en el caso que se quiera buscar el top 10 de todos los Gifs sin importar el tag, se usa el tag "todos" (solo en Redis)
+  
 
 Página web utilizando los servicios de AWS [http://34.219.222.210/gifs_project/clientphp.php](http://34.219.222.210/gifs_project/clientphp.php)
